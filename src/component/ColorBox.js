@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
+import '../css/ColorBox.css'
 
 class ColorBox extends Component {
   render() {
     const style = {
       backgroundColor: this.props.color.color,
-      padding: "40px"
     };
 
     return(
-    <div style={style}>
-      <p>color</p>
+    <div className="ColorBox" style={style}>
+      <p>{this.props.color.name}</p>
     </div>
     );
   }
