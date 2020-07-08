@@ -16,7 +16,7 @@ class ColorBox extends Component {
   }
 
   render() {
-    const color  = this.props.color.color;
+    const color  = this.props.color.hex;
     const { copied } = this.state;
     const style = {
       backgroundColor: color

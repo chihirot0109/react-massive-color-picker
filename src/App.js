@@ -5,10 +5,8 @@ import { getNewPalette } from './component/colorHelper'
 
 class App extends Component {
   render() {
-    const colors = getNewPalette(seedColors[4]);
-    console.log(colors);
     return(
-      <Palette {...seedColors[4]} />
+      <Palette palette={getNewPalette(seedColors[4])} />
     );
   }
 }
