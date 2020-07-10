@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Slider from 'rc-slider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import Snackbar from '@material-ui/core/Snackbar';
 import 'rc-slider/assets/index.css';
 import '../css/NavBar.css'
 
@@ -9,7 +10,7 @@ import '../css/NavBar.css'
 class NavBar extends Component {
   constructor(props){
     super(props)
-    this.state = {format: "hex" }
+    this.state = {format: "hex", open: true }
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -34,6 +35,11 @@ class NavBar extends Component {
               <MenuItem value="rgb">rgb</MenuItem>
               <MenuItem value='rgba'>rgba</MenuItem>
             </Select>
+            <div>
+              <Snackbar 
+              anchorOrigin={{}}
+              />
+            </div>
         </div>
       </header>
     );
