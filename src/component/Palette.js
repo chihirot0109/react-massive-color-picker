@@ -29,12 +29,13 @@ class Palette extends Component {
         <div className="Palette-colors">
           {colors.map(color => (
             <ColorBox 
-              color={color} 
-              format={format} 
+              background={color[format]} 
+              name={color.id} 
               key={color.id}
               paletteId={id}
               id={color.id}
               moreUrl={`/palette/${id}/${color.id}`}
+              showingFullPalette={true}
             />
           ))}
         </div>
