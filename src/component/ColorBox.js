@@ -38,7 +38,7 @@ class ColorBox extends Component {
           </div>
           { showingFullPalette &&
             <Link to={moreUrl} onClick={e => e.stopPropagation()}>
-              <span className="see-more">More</span>
+              <span className={luminance > 0.2 ? "see-more" : "see-more dark"}>More</span>
             </Link>
           }
         </div>
