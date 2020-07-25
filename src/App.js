@@ -42,7 +42,7 @@ class App extends Component {
               palette={getNewPalette(
                 this.findPalette(routesProps.match.params.paletteId)
               )}
-              color={routesProps.match.params.colorId}
+              colorId={routesProps.match.params.colorId}
             />
           )}
         />

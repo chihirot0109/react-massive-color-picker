@@ -30,7 +30,10 @@ export default{
       color: props =>
         chroma(props.background).luminance() >= 0.7 ? "black" : "white"
     },
-
+    colorName: {
+      color: props =>
+        chroma(props.background).luminance() <= 0.08 ? "white" : "black"
+    },
     seeMore: {
       color: props =>
         chroma(props.background).luminance() >= 0.7 ? "rgba(0,0,0,0.6)" : "white",
