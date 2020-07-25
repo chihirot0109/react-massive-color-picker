@@ -1,58 +1,46 @@
-import React from 'react';
-import { withStyles } from '@material-ui/styles';
+import React, { PureComponent } from "react";
+import { withStyles } from "@material-ui/styles";
+import styles from "../styles/MiniPaletteStyles";
+import DeleteIcon from "@material-ui/icons/Delete";
 
-const styles = {
-  root: {
-    backgroundColor: "pink",
-    padding: "0.5rem",
-    color: "white"
-  },
-  colors: {
-    height: "150px",
-    width: "100%",
-    backgroundColor: "white",
-    borderRadius: "5px",
-    overflow: "hidden"
-  },
-  title: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  emoji: {
-    margin: "0 1rem",
-    fontSize: "1rem"
-  },
-  miniColor: {
-    display: "inline-block",
-    height: "25%",
-    width: "20%",
-    margin: "0 auto",
-    position: "relative",
-    marginBottom: "-4px;"
+class MiniPalette extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.deletePalette = this.deletePalette.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-}
+  deletePalette(e) {
+    e.stopPropagation();
+    this.props.openDialog(this.props.id);
+  }
+  handleClick() {
+    this.props.goToPalette(this.props.id);
+  }
+  render() {
+    const { classes, paletteName, emoji, colors } = this.props;
 
-function MiniPalette(props) {
-  const { classes, paletteName, emoji, colors } = props;
-  const miniColorBoxes = colors.map(color => (
-    <div
-      className={classes.miniColor}
-      style={{backgroundColor: color.color}}
-      key={color.name}
-    />
-  ));
-  return (
-    <div className={classes.root} onClick={props.handleClick}>
-      <div className={classes.colors}>
-        {miniColorBoxes}
-      </div>
+    const miniColorBoxes = colors.map(color => (
+      <div
+        className={classes.miniColor}
+        style={{ backgroundColor: color.color }}
+        key={color.name}
+      />
+    ));
+    return (
+      <div className={classes.root} onClick={this.handleClick}>
+        <DeleteIcon
+          className={classes.deleteIcon}
+          style={{ transition: "all 0.3s ease-in-out" }}
+          onClick={this.deletePalette}
+        />
+
+        <div className={classes.colors}>{miniColorBoxes}</div>
         <h5 className={classes.title}>
-          {paletteName}
-          <span className={classes.emoji}>{emoji}</span>
+          {paletteName} <span className={classes.emoji}>{emoji}</span>
         </h5>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles)(MiniPalette);
