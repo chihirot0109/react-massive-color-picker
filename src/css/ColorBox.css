@@ -39,7 +39,12 @@
 }
 
 .copy-button {
+    color: black;
     opacity: 0;
+}
+
+.copy-button.dark {
+    color: white;
 }
 
 .ColorBox:hover .copy-button {
@@ -58,6 +63,14 @@
 }
 
 .box-content.dark {
+    color: white;
+}
+
+.text {
+    color: black;
+}
+
+.text.dark {
     color: white;
 }
 
